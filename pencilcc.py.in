@@ -704,6 +704,8 @@ def compile(files, user_cppflags, user_ppcgargs, user_ccargs, tmpdir, output, mo
 	anyoptimized = False
 	for infile in files:
 		dirname, basename = os.path.split(infile)
+		if not dirname:
+			dirname = '.'
 		rootname,ext = os.path.splitext(basename)
 		optext = has_ext(infile, config.opt_exts)
 		extcext = has_ext(infile, config.extc_exts)
